@@ -38,7 +38,7 @@ pub struct OscilationValues {
 
     #[arg(short, long, num_args = 1..)] // the num_args = 1.. allows multiple arguments to be passed to Vec.
     /// The pattern (days) that represents the week; e.g., 2 3 2 1.
-    pub pattern: Vec<i16>,
+    pub pattern: Vec<u16>,
 }
 
 #[derive(Debug, Args)]
@@ -53,7 +53,7 @@ pub struct LinearValues {
 
     /// The amount of days to calculate mileage for.
     #[arg(short, long)]
-    pub amount: i16,
+    pub amount: u16,
 }
 
 pub fn parse_args() -> MilageCalculatorCLI {

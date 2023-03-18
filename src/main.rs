@@ -2,7 +2,7 @@ use num_format::{Locale, ToFormattedString};
 use rand::{Rng, thread_rng};
 use mileage_mapper::{EntityType, parse_args};
 
-fn linear(input: &mut u64, amount: i16, step: u64) -> Vec<u64> {
+fn linear(input: &mut u64, amount: u16, step: u64) -> Vec<u64> {
     let mut linear_vals: Vec<u64> = Vec::new();
 
     for _ in 0..amount {
@@ -14,8 +14,8 @@ fn linear(input: &mut u64, amount: i16, step: u64) -> Vec<u64> {
     return linear_vals
 }
 
-fn oscillating(input: &mut u64, step: u64, lo_bound: u8, hi_bound: u8, pattern: Vec<i16>) -> Vec<u64> {
-    let mut segments: Vec<i16> = Vec::new();
+fn oscillating(input: &mut u64, step: u64, lo_bound: u8, hi_bound: u8, pattern: Vec<u16>) -> Vec<u64> {
+    let mut segments: Vec<u16> = Vec::new();
     let mut oscil_vals: Vec<u64> = Vec::new();
 
     for v in pattern {
