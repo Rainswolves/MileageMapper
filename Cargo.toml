@@ -1,0 +1,13 @@
+[package]
+name = "mileage_mapper"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[profile.release]
+strip = true
+
+[dependencies]
+num-format = "0.4.4"
+rand = "0.8.5"
+clap = { version = "4.1.9", features = ["derive"] }
