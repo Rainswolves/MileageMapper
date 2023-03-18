@@ -2,8 +2,8 @@ use num_format::{Locale, ToFormattedString};
 use rand::{Rng, thread_rng};
 use mileage_mapper::{EntityType, parse_args};
 
-fn linear(input: &mut i64, amount: i16, step: i64) -> Vec<i64> {
-    let mut linear_vals: Vec<i64> = Vec::new();
+fn linear(input: &mut u64, amount: i16, step: u64) -> Vec<u64> {
+    let mut linear_vals: Vec<u64> = Vec::new();
 
     for _ in 0..amount {
         linear_vals.push(*input);
@@ -14,9 +14,9 @@ fn linear(input: &mut i64, amount: i16, step: i64) -> Vec<i64> {
     return linear_vals
 }
 
-fn oscillating(input: &mut i64, step: i64, lo_bound: i8, hi_bound: i8, pattern: Vec<i16>) -> Vec<i64> {
+fn oscillating(input: &mut u64, step: u64, lo_bound: u8, hi_bound: u8, pattern: Vec<i16>) -> Vec<u64> {
     let mut segments: Vec<i16> = Vec::new();
-    let mut oscil_vals: Vec<i64> = Vec::new();
+    let mut oscil_vals: Vec<u64> = Vec::new();
 
     for v in pattern {
         segments.push(v)
@@ -27,13 +27,13 @@ fn oscillating(input: &mut i64, step: i64, lo_bound: i8, hi_bound: i8, pattern: 
             oscil_vals.push(x);
         }
         let rnd_amount = thread_rng().gen_range(lo_bound..hi_bound);
-        *input += i64::from(rnd_amount);
+        *input += u64::from(rnd_amount);
     }
 
     return oscil_vals
 }
 
-fn en_format(target: i64) -> String {
+fn en_format(target: u64) -> String {
     return target.to_formatted_string(&Locale::en)
 }
 

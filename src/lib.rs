@@ -22,19 +22,19 @@ pub enum EntityType {
 pub struct OscilationValues {
     /// The amount to start with, e.g., 100,000.
     #[arg(short, long)]
-    pub start_amount: i64,
+    pub start_amount: u64,
 
     /// The amount of miles, e.g., 6.
     #[arg(short, long)]
-    pub increment: i64,
+    pub increment: u64,
 
     #[arg(short = 'L', long)]
     /// The lower bound offset (forms range with higher bound).
-    pub lo_offset: i8, 
+    pub lo_offset: u8, 
 
     #[arg(short = 'H', long)]
     /// The higher bound offset (forms range with lower bound).
-    pub hi_offset: i8, 
+    pub hi_offset: u8, 
 
     #[arg(short, long, num_args = 1..)] // the num_args = 1.. allows multiple arguments to be passed to Vec.
     /// The pattern (days) that represents the week; e.g., 2 3 2 1.
@@ -45,11 +45,11 @@ pub struct OscilationValues {
 pub struct LinearValues {
     /// The amount to start with, e.g., 100,000.
     #[arg(short, long)]
-    pub start_amount: i64,
+    pub start_amount: u64,
 
     /// The amount of miles, e.g., 6.
     #[arg(short, long)]
-    pub increment: i64,
+    pub increment: u64,
 
     /// The amount of days to calculate mileage for.
     #[arg(short, long)]
