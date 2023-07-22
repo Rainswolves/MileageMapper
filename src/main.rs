@@ -15,14 +15,9 @@ fn linear(input: &mut u64, amount: u16, step: u64) -> Vec<u64> {
 }
 
 fn oscillating(input: &mut u64, step: u64, lo_bound: u8, hi_bound: u8, pattern: Vec<u16>) -> Vec<u64> {
-    let mut segments: Vec<u16> = Vec::new();
     let mut oscil_vals: Vec<u64> = Vec::new();
 
-    for v in pattern {
-        segments.push(v)
-    }
-
-    for s in segments {
+    for s in pattern {
         for x in linear(input, s, step) {
             oscil_vals.push(x);
         }
