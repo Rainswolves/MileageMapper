@@ -58,7 +58,7 @@ fn main() {
     match args.entity_type {
         EntityType::Osc(mut osc_values) => {
             let mut b = RNGBound::default();
-            if osc_values.lo_offset.is_some() {
+            if osc_values.lo_offset.is_some() && osc_values.hi_offset.is_some() {
                 b = RNGBound {
                     hi_bound: osc_values.hi_offset.unwrap(),
                     lo_bound: osc_values.lo_offset.unwrap(),
