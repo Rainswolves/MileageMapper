@@ -1,7 +1,7 @@
 use clap::{Args, Parser, Subcommand};
 
 #[derive(Debug, Parser)]
-#[clap(author, version, about)]
+#[clap(about)]
 /// Mileage Mapper: A commandline application that maps your milage!
 
 pub struct MilageCalculatorCLI {
@@ -29,12 +29,12 @@ pub struct OscilationValues {
     pub increment: u64,
 
     #[arg(short = 'L', long)]
-    /// The lower bound offset (forms range with higher bound).
-    pub lo_offset: u8, 
+    /// The lower bound offset (forms range with higher bound). Default: 7
+    pub lo_offset: Option<u8>, 
 
     #[arg(short = 'H', long)]
-    /// The higher bound offset (forms range with lower bound).
-    pub hi_offset: u8, 
+    /// The higher bound offset (forms range with lower bound). Default: 12
+    pub hi_offset: Option<u8>, 
 
     #[arg(short, long, num_args = 1..)] // the num_args = 1.. allows multiple arguments to be passed to Vec.
     /// The pattern (days) that represents the week; e.g., 2 3 2 1.
